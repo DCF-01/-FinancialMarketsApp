@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialMarketsApp.MVC", "FinancialMarketsApp\FinancialMarketsApp.MVC.csproj", "{F24C3D0F-CA0A-4064-915C-825DC5CB8ED4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialMarketsApp.Core", "FinancialMarketsApp.Core\FinancialMarketsApp.Core.csproj", "{0BE27069-C49D-479A-AE4A-67A1DB8B60DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialMarketsApp.Common", "FinancialMarketsApp.Common\FinancialMarketsApp.Common.csproj", "{ADB3024D-1519-47A5-9AAC-44707FE6D6CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{21555934-2DCB-4F5B-B04D-8A1108605B2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F24C3D0F-CA0A-4064-915C-825DC5CB8ED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F24C3D0F-CA0A-4064-915C-825DC5CB8ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F24C3D0F-CA0A-4064-915C-825DC5CB8ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F24C3D0F-CA0A-4064-915C-825DC5CB8ED4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BE27069-C49D-479A-AE4A-67A1DB8B60DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BE27069-C49D-479A-AE4A-67A1DB8B60DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BE27069-C49D-479A-AE4A-67A1DB8B60DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BE27069-C49D-479A-AE4A-67A1DB8B60DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADB3024D-1519-47A5-9AAC-44707FE6D6CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADB3024D-1519-47A5-9AAC-44707FE6D6CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADB3024D-1519-47A5-9AAC-44707FE6D6CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADB3024D-1519-47A5-9AAC-44707FE6D6CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D4C2D6D-60E3-44AE-B03F-2B3CF7022FCE}
+	EndGlobalSection
+EndGlobal

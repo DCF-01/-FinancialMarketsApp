@@ -1,5 +1,7 @@
 ﻿using FinancialMarketsApp.MVC.Models;
+using FinancialMarketsApp.MVC.Options;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System.Diagnostics;
 
 namespace FinancialMarketsApp.MVC.Controllers
@@ -7,15 +9,17 @@ namespace FinancialMarketsApp.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IOptions<MVCOptions> _options;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IOptions<MVCOptions> options)
         {
             _logger = logger;
+            _options = options;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return Ok(new { options = _options.Value.APIKey});
         }
 
         public IActionResult Privacy()

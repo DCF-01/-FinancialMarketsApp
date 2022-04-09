@@ -1,7 +1,13 @@
+using FinancialMarketsApp.MVC.Options;
+
 var builder = WebApplication.CreateBuilder(args);
+var optionsPath = builder.Configuration.GetSection("UserConfig").Value;
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Configuration.AddJsonFile(optionsPath);
+builder.Services.Configure<MVCOptions>(builder.Configuration.GetSection(MVCOptions.Section));
 
 var app = builder.Build();
 

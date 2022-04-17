@@ -1,9 +1,14 @@
 using FinancialMarketsApp.MVC.Options;
 using FinancialMarketsApp.MVC.IOC;
+using FinancialMarketsApp.Infrastructure.AlphaVantage.IOC;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddMvcModule(builder.Configuration);
+IConfiguration configuration = builder.Configuration;
+
+builder.Services
+    .AddMvcModule(builder.Configuration)
+    .AddAlphaVantageModule(configuration);
 
 var app = builder.Build();
 

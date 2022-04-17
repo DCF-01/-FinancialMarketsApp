@@ -10,7 +10,6 @@ namespace FinancialMarketsApp.MVC.IOC
             configuration.AddJsonFile(configPath);
 
             services.AddControllersWithViews();
-            services.Configure<MVCOptions>(configuration.GetSection(MVCOptions.Section));
 
             return services;
         }

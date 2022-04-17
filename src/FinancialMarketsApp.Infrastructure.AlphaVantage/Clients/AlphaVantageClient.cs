@@ -8,7 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http.Json;
 
+
 using FinancialMarketsApp.Infrastructure.AlphaVantage.Options;
+using System.Net;
+using FinancialMarketsApp.Core.Models;
 
 namespace FinancialMarketsApp.Infrastructure.AlphaVantage.Clients
 {
@@ -21,13 +24,30 @@ namespace FinancialMarketsApp.Infrastructure.AlphaVantage.Clients
             _httpClient = client;
             _alphaVantageOptions = options.Value;
         }
-        public async Task<T> GetTimeSeries<T>(string timeSpan, string ticker, string interval, bool adjusted, string outputSize)
+        public async Task<IEnumerable<TimeSeries>> GetTimeSeries(string timeSpan, string ticker, string interval, bool adjusted)
         {
-            var response = await _httpClient.GetFromJsonAsync<T>($"query?function={timeSpan}&symbol={ticker}&interval={interval}&apikey={_alphaVantageOptions.APIKey}");
+            var response = await _httpClient.GetAsync($"query?function={timeSpan}&symbol={ticker}&interval={interval}&apikey={_alphaVantageOptions.APIKey}");
 
-            if (response == null)
+            if (response.StatusCode != HttpStatusCode.OK)
                 throw new ArgumentException("API call to AlphaVantage failed.");
-            return response;
+
+            string csvContent = await response.Content.ReadAsStringAsync();
+
+            var timeSeries = csvContent.Split('\n').Select(x =>
+            {
+                var columns = x.Split(',');
+                return new TimeSeries
+                {
+                    TimeStamp = DateTime.Parse(columns[0]),
+                    Open = columns[1],
+                    High = columns[2],
+                    Low = columns[3],
+                    Close = columns[4],
+                    Volume = columns[5]
+                };
+            });
+
+            return timeSeries;
         }
     }
 }

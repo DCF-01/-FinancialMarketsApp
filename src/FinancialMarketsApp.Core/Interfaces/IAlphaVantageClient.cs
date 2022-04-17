@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinancialMarketsApp.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace FinancialMarketsApp.Core.Interfaces
 {
     public interface IAlphaVantageClient
     {
-        public Task<T> GetTimeSeries<T>(string timeSpan, string ticker, string interval, bool adjusted, string outputSize);
+        public Task<IEnumerable<TimeSeries>> GetTimeSeries(string timeSpan, string ticker, string interval, bool adjusted);
     }
 }

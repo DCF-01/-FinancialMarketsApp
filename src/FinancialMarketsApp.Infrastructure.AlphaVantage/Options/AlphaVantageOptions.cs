@@ -9,6 +9,7 @@ namespace FinancialMarketsApp.Infrastructure.AlphaVantage.Options
     public class AlphaVantageOptions
     {
         public const string Section = "AlphaVantage";
-        public string APIKey { get; set; }
+        public string? BaseAddress { get; set; }
+        public string? APIKey { get; set; }
     }
 }

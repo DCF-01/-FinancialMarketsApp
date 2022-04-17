@@ -1,25 +1,29 @@
-﻿using FinancialMarketsApp.MVC.Models;
+﻿using FinancialMarketsApp.Core.Interfaces;
+using FinancialMarketsApp.MVC.Models;
 using FinancialMarketsApp.MVC.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
+using FinancialMarketsApp.Infrastructure.AlphaVantage.Constants;
 
 namespace FinancialMarketsApp.MVC.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IOptions<MVCOptions> _options;
+        private readonly IAlphaVantageClient _alphaVantageClient;
 
-        public HomeController(ILogger<HomeController> logger, IOptions<MVCOptions> options)
+        public HomeController(ILogger<HomeController> logger, IAlphaVantageClient alphaVantageClient)
         {
             _logger = logger;
-            _options = options;
+            _alphaVantageClient = alphaVantageClient;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return Ok(new { options = _options.Value.APIKey});
+            var res = await _alphaVantageClient.GetTimeSeries(timeSpan: Interval.MINUTES_15, ticker: "IBM", interval: Interval.MINUTES_15, adjusted: false);
+
+            return Ok(res);
         }
 
         public IActionResult Privacy()

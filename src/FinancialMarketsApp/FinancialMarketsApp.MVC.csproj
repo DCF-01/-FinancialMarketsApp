@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FinancialMarketsApp.Core\FinancialMarketsApp.Core.csproj" />
+    <ProjectReference Include="..\FinancialMarketsApp.Infrastructure.AlphaVantage\FinancialMarketsApp.Infrastructure.AlphaVantage.csproj" />
+  </ItemGroup>
+
 </Project>

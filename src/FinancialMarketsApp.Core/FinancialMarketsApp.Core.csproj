@@ -6,14 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Interfaces\IAlphaVantageClient.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Interfaces\IAlphaVantageClient.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Enums\AlphaVantage\" />
     <Folder Include="NewFolder\" />
   </ItemGroup>

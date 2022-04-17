@@ -38,7 +38,7 @@ namespace FinancialMarketsApp.Infrastructure.AlphaVantage.Clients
                 var columns = x.Split(',');
                 return new TimeSeries
                 {
-                    TimeStamp = columns[0],
+                    TimeStamp = DateTime.Parse(columns[0]),
                     Open = columns[1],
                     High = columns[2],
                     Low = columns[3],

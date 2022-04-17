@@ -9,6 +9,6 @@ namespace FinancialMarketsApp.Core.Interfaces
 {
     public interface IAlphaVantageClient
     {
-        public Task<IEnumerable<TimeSeries>> GetTimeSeries(string timeSpan, string ticker, string interval, bool adjusted);
+        public Task<IEnumerable<TimeSeries>> GetTimeSeries(string timeSeriesFunction, string ticker, string interval, bool adjusted);
     }
 }

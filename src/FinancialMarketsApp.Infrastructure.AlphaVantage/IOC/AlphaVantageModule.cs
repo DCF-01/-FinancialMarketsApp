@@ -16,18 +16,18 @@ namespace FinancialMarketsApp.Infrastructure.AlphaVantage.IOC
     {
         public static IServiceCollection AddAlphaVantageModule(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddAlphaVantageOptions(configuration);
             services.AddHttpClient<IAlphaVantageClient, AlphaVantageClient>(client =>
             {
-                var options = services.BuildServiceProvider().GetRequiredService<AlphaVantageOptions>();
+                var options = services.BuildServiceProvider().GetRequiredService<IOptions<AlphaVantageOptions>>().Value;
 
                 client.BaseAddress = new Uri(options.BaseAddress);
             });
-            services.AddAlphaVantageOptions(configuration);
 
             return services;
         }
 
-        public static IServiceCollection AddAlphaVantageOptions(this IServiceCollection services, IConfiguration configuration)
+        private static IServiceCollection AddAlphaVantageOptions(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddOptions<AlphaVantageOptions>().Configure(options =>
             {

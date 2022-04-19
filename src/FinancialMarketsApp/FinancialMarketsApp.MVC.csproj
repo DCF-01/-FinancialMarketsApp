@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -13,10 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\FinancialMarketsApp.Core\FinancialMarketsApp.Core.csproj" />
     <ProjectReference Include="..\FinancialMarketsApp.Infrastructure.AlphaVantage\FinancialMarketsApp.Infrastructure.AlphaVantage.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\swagger\" />
   </ItemGroup>
 
 </Project>

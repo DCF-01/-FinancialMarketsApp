@@ -21,7 +21,7 @@ namespace FinancialMarketsApp.MVC.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var res = await _alphaVantageClient.GetTimeSeries(timeSeriesFunction: TimeSeries.TIME_SERIES_INTRADAY, interval: Interval.MINUTES_15, ticker: "IBM", adjusted: false);
+            var res = await _alphaVantageClient.GetTimeSeries(timeSeriesFunction: Function.TIME_SERIES_INTRADAY, interval: Interval.MINUTES_15, symbol: "IBM", adjusted: false);
 
             return Ok(res);
         }

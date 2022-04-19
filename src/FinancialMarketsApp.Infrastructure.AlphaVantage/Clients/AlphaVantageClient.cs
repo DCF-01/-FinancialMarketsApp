@@ -24,9 +24,9 @@ namespace FinancialMarketsApp.Infrastructure.AlphaVantage.Clients
             _httpClient = client;
             _alphaVantageOptions = options.Value;
         }
-        public async Task<IEnumerable<TimeSeries>> GetTimeSeries(string timeSeriesFunction, string ticker, string interval, bool adjusted)
+        public async Task<IEnumerable<TimeSeries>> GetTimeSeries(string timeSeriesFunction, string symbol, string interval, bool adjusted)
         {
-            var response = await _httpClient.GetAsync($"query?function={timeSeriesFunction}&symbol={ticker}&interval={interval}&apikey={_alphaVantageOptions.APIKey}&datatype=csv");
+            var response = await _httpClient.GetAsync($"query?function={timeSeriesFunction}&symbol={symbol}&interval={interval}&apikey={_alphaVantageOptions.APIKey}&datatype=csv");
 
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new ArgumentException("API call to AlphaVantage failed.");

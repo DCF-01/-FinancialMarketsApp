@@ -13,7 +13,7 @@ namespace FinancialMarketsApp.Infrastructure.AlphaVantage.Constants
         public const string MINUTES_60 = "60min";
     }
 
-    public static class TimeSeries
+    public static class Function
     {
         public const string TIME_SERIES_INTRADAY = "TIME_SERIES_INTRADAY";
         public const string TIME_SERIES_INTRADAY_EXTENDED = "TIME_SERIES_INTRADAY_EXTENDED";

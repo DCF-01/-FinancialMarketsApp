@@ -8,6 +8,8 @@ using FinancialMarketsApp.Infrastructure.AlphaVantage.Constants;
 
 namespace FinancialMarketsApp.MVC.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

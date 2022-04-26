@@ -9,7 +9,9 @@ namespace FinancialMarketsApp.MVC.IOC
             string configPath = configuration.GetSection("UserConfig").Value;
             configuration.AddJsonFile(configPath);
 
-            services.AddControllersWithViews();
+            services.AddControllers();
+
+            services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
             return services;

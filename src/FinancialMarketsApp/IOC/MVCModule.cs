@@ -6,9 +6,6 @@ namespace FinancialMarketsApp.MVC.IOC
     {
         public static IServiceCollection AddMvcModule(this IServiceCollection services, ConfigurationManager configuration)
         {
-            string configPath = configuration.GetSection("UserConfig").Value;
-            configuration.AddJsonFile(configPath);
-
             services.AddControllers();
 
             services.AddEndpointsApiExplorer();
